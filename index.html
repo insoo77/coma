@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>전북과학고등학교 스마트폰 과의존 예방 홍보주간</title>
+<style>
+:root{
+  --bg1:#eaf5ff; --bg2:#f7fbff; --ink:#123047; --muted:#5f7487;
+  --blue:#1677ff; --navy:#0b2f5b; --mint:#26c6a0; --yellow:#ffd166;
+  --pink:#ff6b9d; --purple:#8b5cf6; --card:#ffffffcc;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 12% 10%, #bfe3ff 0 14%, transparent 30%),
+    radial-gradient(circle at 90% 20%, #d7c7ff 0 12%, transparent 28%),
+    radial-gradient(circle at 75% 85%, #bff6e9 0 13%, transparent 28%),
+    linear-gradient(135deg,var(--bg1),var(--bg2));
+  min-height:100vh;
+}
+a{text-decoration:none;color:inherit}
+.wrap{display:grid; grid-template-columns: 240px 1fr; min-height:100vh}
+.sidebar{
+  position:sticky; top:0; height:100vh; padding:24px 18px;
+  background:linear-gradient(180deg,#0b2f5b,#114b8f);
+  color:white; box-shadow:10px 0 30px #0b2f5b22; overflow:auto;
+}
+.logo{
+  background:#ffffff18; border:1px solid #ffffff33; border-radius:22px;
+  padding:18px; margin-bottom:18px; backdrop-filter: blur(12px);
+}
+.logo .school{font-size:15px; opacity:.9; font-weight:700}
+.logo .title{font-size:22px; line-height:1.25; margin-top:8px; font-weight:900}
+.logo .period{font-size:13px; margin-top:12px; color:#dceeff}
+.menu{display:flex; flex-direction:column; gap:10px; margin-top:18px}
+.menu a{
+  display:flex; gap:10px; align-items:center;
+  padding:13px 14px; border-radius:16px; color:#eef7ff;
+  background:#ffffff12; border:1px solid #ffffff1f;
+  transition:.18s; font-weight:800; font-size:15px;
+}
+.menu a:hover,.menu a.active{background:white; color:#0b2f5b; transform:translateX(4px)}
+.main{padding:34px; overflow:hidden}
+.hero{
+  position:relative; border-radius:34px; padding:42px;
+  background:linear-gradient(135deg,#ffffffee,#eff8ffee);
+  box-shadow:0 20px 55px #0b2f5b18; border:1px solid #fff;
+  overflow:hidden;
+}
+.hero:before{
+  content:""; position:absolute; right:-70px; top:-70px; width:230px; height:230px;
+  border-radius:50%; background:linear-gradient(135deg,#1677ff33,#8b5cf633);
+}
+.badge{
+  display:inline-flex; gap:8px; align-items:center; padding:9px 14px;
+  border-radius:999px; background:#e9f4ff; color:#0b5dcc; font-weight:900;
+  border:1px solid #cfe7ff;
+}
+h1{font-size:42px; line-height:1.18; margin:18px 0 12px; letter-spacing:-1.2px}
+.lead{font-size:19px; line-height:1.7; color:var(--muted); max-width:920px}
+.grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:26px}
+.daycard{
+  background:white; border-radius:24px; padding:20px; min-height:220px;
+  box-shadow:0 12px 28px #0b2f5b12; border:1px solid #e8f2ff;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.day{font-size:15px; font-weight:900; color:#1677ff}
+.icon{font-size:36px; margin:8px 0}
+.daycard h2{font-size:21px; margin:0 0 10px; line-height:1.25}
+.daycard p{color:#5f7487; line-height:1.55; margin:0; font-size:15px}
+.btn{
+  margin-top:16px; display:inline-flex; justify-content:center; align-items:center;
+  width:100%; padding:13px 14px; border-radius:15px;
+  color:white; font-weight:900; background:linear-gradient(135deg,#1677ff,#26c6a0);
+  box-shadow:0 10px 18px #1677ff22;
+}
+.section{margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:18px}
+.panel{
+  background:#ffffffd9; border:1px solid #e6f1ff; border-radius:26px; padding:24px;
+  box-shadow:0 12px 32px #0b2f5b10;
+}
+.panel h3{margin:0 0 12px; font-size:24px}
+ul{margin:10px 0 0; padding-left:22px; line-height:1.8}
+.activity{
+  display:grid; gap:18px; margin-top:24px;
+  grid-template-columns: 1.2fr .8fr;
+}
+.bigcard{
+  background:#ffffffdf; border-radius:30px; padding:30px; border:1px solid #e6f1ff;
+  box-shadow:0 15px 38px #0b2f5b12;
+}
+.bigcard h2{font-size:32px; margin:0 0 14px}
+.info{
+  display:grid; gap:12px; margin:18px 0;
+}
+.info div{padding:15px 16px; background:#f3f9ff; border-radius:16px; border:1px solid #dceeff}
+.checklist label{
+  display:block; padding:14px 16px; background:#f8fbff; border:1px solid #e3eefb;
+  border-radius:16px; margin:10px 0; cursor:pointer; font-weight:700;
+}
+.checklist input{transform:scale(1.2); margin-right:10px}
+textarea,input[type=text]{
+  width:100%; border:1px solid #cfe1f3; border-radius:16px; padding:15px;
+  font:inherit; background:white; outline:none;
+}
+textarea{min-height:160px}
+.small{font-size:13px;color:#6b7f91}
+.footer{text-align:center; color:#6b7f91; padding:24px}
+@media(max-width:1100px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .section,.activity{grid-template-columns:1fr}
+  .wrap{grid-template-columns:1fr}
+  .sidebar{position:relative;height:auto}
+  .menu{display:grid;grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .main{padding:18px}.hero{padding:26px}h1{font-size:30px}
+  .grid{grid-template-columns:1fr}.menu{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="school">전북과학고등학교</div>
+        <div class="title">스마트폰 과의존<br>예방 홍보주간</div>
+        <div class="period">2026.05.11(월) ~ 2026.05.15(금)</div>
+      </div>
+      <nav class="menu"><a href="index.html" class="active">🏠 전체 일정</a><a href="c01.html" class="">📢 월요일</a><a href="c02.html" class="">🔍 화요일</a><a href="c03.html" class="">🧘 수요일</a><a href="c04.html" class="">🎨 목요일</a><a href="c05.html" class="">🤝 금요일</a></nav>
+    </aside>
+    
+<main class="main">
+  <section class="hero">
+    <span class="badge">📵 건강한 디지털 생활 만들기</span>
+    <h1>전북과학고등학교<br>스마트폰 과의존 예방 홍보주간 캠페인</h1>
+    <p class="lead">
+      스마트폰을 더 똑똑하게 사용하기 위해 나의 사용 습관을 점검하고,
+      친구와 대화하며, 학급별 예방 문구와 실천 서약을 완성하는 참여형 캠페인입니다.
+    </p>
+    <div class="grid">
+<article class="daycard">
+  <div>
+    <div class="day">월요일</div>
+    <div class="icon">📢</div>
+    <h2>캠페인 선포식</h2>
+    <p>스마트폰 과의존 예방 주간 안내, 캠페인 구호 발표</p>
+  </div>
+  <a class="btn" href="c01.html">프로그램 생성 · 바로가기</a>
+</article>
+
+
+<article class="daycard">
+  <div>
+    <div class="day">화요일</div>
+    <div class="icon">🔍</div>
+    <h2>나의 스마트폰 사용 습관 점검</h2>
+    <p>자가진단 체크리스트 작성 및 결과 확인</p>
+  </div>
+  <a class="btn" href="c02.html">프로그램 생성 · 바로가기</a>
+</article>
+
+
+<article class="daycard">
+  <div>
+    <div class="day">수요일</div>
+    <div class="icon">🧘</div>
+    <h2>디지털 쉼표 데이</h2>
+    <p>점심시간 20분 스마트폰 없이 친구와 대화하기</p>
+  </div>
+  <a class="btn" href="c03.html">프로그램 생성 · 바로가기</a>
+</article>
+
+
+<article class="daycard">
+  <div>
+    <div class="day">목요일</div>
+    <div class="icon">🎨</div>
+    <h2>학급별 예방 문구 만들기</h2>
+    <p>포스터, 카드뉴스, 표어 제작</p>
+  </div>
+  <a class="btn" href="c04.html">프로그램 생성 · 바로가기</a>
+</article>
+
+
+<article class="daycard">
+  <div>
+    <div class="day">금요일</div>
+    <div class="icon">🤝</div>
+    <h2>실천 서약 캠페인</h2>
+    <p>나의 스마트폰 사용 약속 작성 및 공유</p>
+  </div>
+  <a class="btn" href="c05.html">프로그램 생성 · 바로가기</a>
+</article>
+</div>
+  </section>
+  <section class="section">
+    <div class="panel">
+      <h3>🎯 캠페인 목표</h3>
+      <ul>
+        <li>스마트폰 과의존의 의미와 위험 신호를 이해한다.</li>
+        <li>자신의 사용 습관을 점검하고 조절 전략을 세운다.</li>
+        <li>친구와 함께 건강한 디지털 문화 실천 약속을 만든다.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>✅ 운영 안내</h3>
+      <ul>
+        <li>각 요일별 버튼을 클릭하면 해당 프로그램 페이지로 이동합니다.</li>
+        <li>학급 활동, 점심시간 캠페인, 포스터·표어 제작 활동에 활용할 수 있습니다.</li>
+        <li>학생 참여 결과는 학급 게시판 또는 학교 홍보자료로 공유할 수 있습니다.</li>
+      </ul>
+    </div>
+  </section>
+  <div class="footer">JEONBUK SCIENCE HIGH SCHOOL · Digital Wellbeing Campaign Week</div>
+</main>
+</div>
+</body>
+</html>
